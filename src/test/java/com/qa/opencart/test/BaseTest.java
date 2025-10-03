@@ -8,6 +8,7 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 
 import java.io.FileNotFoundException;
 import java.util.Properties;
@@ -21,9 +22,14 @@ public class BaseTest {
     protected LoginPage loginPage;
 
     @BeforeTest
-    public void setup() throws FileNotFoundException {
+    @Parameters({"browser"})
+    public void setup(String browser) throws FileNotFoundException {
         pf = new PlaywrightFactory();
         prop = pf.initProperties();
+        // If browser parameter is set from testng.xml file then set global browser value in the config.properties file
+        if(browser!=null){
+            prop.setProperty("browser", browser);
+        }
         page = pf.initBrowser(prop);
         homePage = new HomePage(page);
     }
