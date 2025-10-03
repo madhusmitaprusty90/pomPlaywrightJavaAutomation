@@ -11,11 +11,12 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                // Add your test commands here, e.g., mvn test
-                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    git 'https://github.com/madhusmitaprusty90/pomPlaywrightJavaAutomation'
-                    sh "mvn clean test -Dsurefure.suiteXmlFiles=testrunners/testng.xml"
-
+                script{
+                    catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                        // Add your test commands here, e.g., mvn test
+                        git 'https://github.com/madhusmitaprusty90/pomPlaywrightJavaAutomation'
+                        sh "mvn clean test -Dsurefire.suiteXmlFiles=testrunners/testng.xml"
+                    }
                 }
             }
         }
