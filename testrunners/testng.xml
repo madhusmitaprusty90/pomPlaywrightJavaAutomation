@@ -8,29 +8,29 @@
         <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
     </listeners>
 
-    <parameter name="browser" value="chrome"></parameter>
     <test name="Open cart Home page Test on chrome">
+        <parameter name="browser" value="chrome"></parameter>
           <classes>
               <class name="com.qa.opencart.test.HomePageTest" />
           </classes>
     </test>
 
-    <parameter name="browser" value="firefox"></parameter>
     <test name="Open cart Home page Test on firefox">
+        <parameter name="browser" value="firefox"></parameter>
         <classes>
             <class name="com.qa.opencart.test.LoginPageTest"></class>
         </classes>
     </test>
 
-    <parameter name="browser" value="chromium"></parameter>
     <test name="Open cart Home page Test on chromium">
+        <parameter name="browser" value="chromium"></parameter>
         <classes>
             <class name="com.qa.opencart.test.HomePageTest" />
         </classes>
     </test>
 
-    <parameter name="browser" value="edge"></parameter>
     <test name="Open cart Home page Test on msedge">
+        <parameter name="browser" value="edge"></parameter>
         <classes>
             <class name="com.qa.opencart.test.LoginPageTest"></class>
         </classes>
