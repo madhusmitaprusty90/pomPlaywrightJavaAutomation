@@ -68,6 +68,10 @@ public class PlaywrightFactory {
 //                browser = playwright.chromium().launch(new LaunchOptions().setHeadless(false));
                 tlbrowser.set(tlplaywright.get().chromium().launch(new LaunchOptions().setHeadless(false)));
                 break;
+            case "edge":
+//                browser = playwright.chromium().launch(new LaunchOptions().setHeadless(false));
+                tlbrowser.set(tlplaywright.get().chromium().launch(new LaunchOptions().setChannel("msedge").setHeadless(false)));
+                break;
             default:
                 System.out.println("Please pass the correct browser name. " +
                         "Supported browser names are: 'chrome', 'firefox', 'safari', 'chromium'");

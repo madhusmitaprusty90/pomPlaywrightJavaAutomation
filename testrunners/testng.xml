@@ -1,17 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Open Cart Regression Test Suite" verbose="4">
+<suite name="Open Cart Regression Test Suite" verbose="4" parallel="tests" thread-count="4">
 <!--    parallel="tests" thread-count="2"-->
 
     <listeners>
         <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
     </listeners>
-    <test name="Open cart Home page Test">
+
+    <parameter name="browser" value="chrome"></parameter>
+    <test name="Open cart Home page Test on chrome">
           <classes>
-<!--              <class name="com.qa.opencart.test.HomePageTest" />-->
-              <class name="com.qa.opencart.test.LoginPageTest"></class>
+              <class name="com.qa.opencart.test.HomePageTest" />
           </classes>
+    </test>
+
+    <parameter name="browser" value="firefox"></parameter>
+    <test name="Open cart Home page Test on firefox">
+        <classes>
+            <class name="com.qa.opencart.test.LoginPageTest"></class>
+        </classes>
+    </test>
+
+    <parameter name="browser" value="chromium"></parameter>
+    <test name="Open cart Home page Test on chromium">
+        <classes>
+            <class name="com.qa.opencart.test.HomePageTest" />
+        </classes>
+    </test>
+
+    <parameter name="browser" value="edge"></parameter>
+    <test name="Open cart Home page Test on msedge">
+        <classes>
+            <class name="com.qa.opencart.test.LoginPageTest"></class>
+        </classes>
     </test>
 
 </suite>
