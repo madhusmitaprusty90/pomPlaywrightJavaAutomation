@@ -30,8 +30,14 @@ pipeline {
 
     post { // Actions to perform after the pipeline completes, regardless of success or failure
         always {
-            echo 'Pipeline finished.'
-        }
+                    echo 'Pipeline finished.'
+                    // Publish Allure report after every build
+                    allure([
+                        includeProperties: false,
+                        jdk: '',
+                        results: [[path: 'target/allure-results']]
+                    ])
+                }
         success {
             echo 'Pipeline succeeded!'
         }
